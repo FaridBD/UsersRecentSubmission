@@ -1,9 +1,11 @@
 package com.example.farid.usersrecentsubmission;
 
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.jsoup.Jsoup;
@@ -20,6 +22,8 @@ public class submission_list extends AppCompatActivity {
 
     private TextView username;
     List<submissionActivity> codechef_list = new ArrayList<>();
+    private BottomSheetBehavior bottomSheetBehavior;
+    LinearLayout problem_statement, source_code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +31,21 @@ public class submission_list extends AppCompatActivity {
         setContentView(R.layout.activity_submission_list);
 
         recent_submission_for_codechef(getIntent().getStringExtra("username").toString());
-
-        System.out.println(getIntent().getStringExtra("username").toString() + ">>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.problem_code_bottom_sheet));
+        problem_statement = findViewById(R.id.problem_view);
+        source_code = findViewById(R.id.code_view);
 
         try {
             Thread.sleep(5000);
         }catch (Exception e) {}
 
-        System.out.println(codechef_list.size() + " ***********************************************");
-
         RecyclerView recyclerView = findViewById(R.id.sub_recycler_view);
-        recyclerAdapterOfRecentSubmission myAdapter = new recyclerAdapterOfRecentSubmission(submission_list.this, codechef_list);
+        recyclerAdapterOfRecentSubmission myAdapter = new recyclerAdapterOfRecentSubmission(submission_list.this, codechef_list, bottomSheetBehavior, problem_statement, source_code);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(myAdapter);
+
+        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.problem_code_bottom_sheet));
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
     }
 

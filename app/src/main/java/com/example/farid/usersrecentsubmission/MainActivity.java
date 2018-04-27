@@ -1,6 +1,7 @@
 package com.example.farid.usersrecentsubmission;
 
 import android.content.Intent;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editText;
     private Button enter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         editText = findViewById(R.id.editText);
         enter = findViewById(R.id.enter);
+
 
         enter.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.List;
 
 public class submissionActivity {
-    String solution_id, solution_time,  problem_name, solution_status,  problem_link, soltuon_link, judge, soulution_language, solution_execution_time, usage_memory, problem_difficulty;
+    String solution_id, solution_time,  problem_name, solution_status,  problem_link, solution_link, judge, soulution_language, solution_execution_time, usage_memory, problem_difficulty;
 
     public submissionActivity(String solution_id, String solution_time, String problem_name, String solution_status, String problem_link, String soltuon_link, String judge, String soulution_language, String solution_execution_time, String usage_memory, String problem_difficulty) {
         this.solution_id = solution_id;
@@ -13,7 +13,7 @@ public class submissionActivity {
         this.problem_name = problem_name;
         this.solution_status = solution_status;
         this.problem_link = problem_link;
-        this.soltuon_link = soltuon_link;
+        this.solution_link = soltuon_link;
         this.judge = judge;
         this.soulution_language = soulution_language;
         this.solution_execution_time = solution_execution_time;
@@ -50,7 +50,7 @@ public class submissionActivity {
     }
 
     public String getSoltuon_link() {
-        return soltuon_link;
+        return solution_link;
     }
 
     public String getJudge() {
@@ -78,7 +78,7 @@ public class submissionActivity {
     }
 
     public void setSoltuon_link(String soltuon_link) {
-        this.soltuon_link = soltuon_link;
+        this.solution_link = soltuon_link;
     }
 
     public void setJudge(String judge) {
